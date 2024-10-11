@@ -13,20 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8ars8")
 
-[node name="ExportNameDialog" type="ConfirmationDialog" parent="."]
-title = "Normal Name"
-initial_position = 2
-size = Vector2i(400, 100)
-ok_button_text = "Confirm"
-
-[node name="ExportNameLineEdit2" type="LineEdit" parent="ExportNameDialog"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 392.0
-offset_bottom = 51.0
-text = "Example Normal.png"
-alignment = 1
-
 [node name="FilepathDialog" type="FileDialog" parent="."]
 title = "Open a File"
 initial_position = 2
@@ -56,22 +42,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HSC" type="HSplitContainer" parent="Panel/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-dragger_visibility = 2
-
-[node name="FilepathLineEdit" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer/HSC"]
+[node name="FilepathLineEdit" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_horizontal = 3
-text = "C:/Example.png"
+text = "C:/example.png"
 alignment = 1
 editable = false
-
-[node name="ChangeButton" type="Button" parent="Panel/ScrollContainer/VBoxContainer/HSC"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-text = "Change"
 
 [node name="FilepathButton" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -85,15 +61,10 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TilesheetCheckBox" type="CheckButton" parent="Panel/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Tilesheet"
-alignment = 1
-
-[node name="TilesheetCheckBox2" type="CheckButton" parent="Panel/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Force Edge"
 alignment = 1
 
 [node name="HSplitContainer" type="HSplitContainer" parent="Panel/ScrollContainer/VBoxContainer"]
@@ -173,7 +144,6 @@ size_flags_horizontal = 3
 text = "Quick Set: 16x16 (No Bleed)"
 
 [node name="QS_16_and_1B_Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer5"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Quick Set: 16x16 (1px Bleed)"
@@ -189,107 +159,9 @@ size_flags_horizontal = 3
 text = "Quick Set: 32x32 (No Bleed)"
 
 [node name="QS_32_and_1B_Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer6"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Quick Set: 32x32 (1px Bleed)"
-
-[node name="HSplitContainer7" type="HSplitContainer" parent="Panel/ScrollContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-dragger_visibility = 2
-
-[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer7"]
-custom_minimum_size = Vector2(260, 0)
-layout_mode = 2
-text = "Export Tile's X Bleed Padding:"
-horizontal_alignment = 1
-
-[node name="SpinBox" type="SpinBox" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer7"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="HSplitContainer8" type="HSplitContainer" parent="Panel/ScrollContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-dragger_visibility = 2
-
-[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer8"]
-custom_minimum_size = Vector2(260, 0)
-layout_mode = 2
-text = "Export Tile's Y Bleed Padding:"
-horizontal_alignment = 1
-
-[node name="SpinBox" type="SpinBox" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer8"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="HSplitContainer9" type="HSplitContainer" parent="Panel/ScrollContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-dragger_visibility = 2
-
-[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer9"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-text = "Export's X Bleed Padding:"
-horizontal_alignment = 1
-
-[node name="SpinBox" type="SpinBox" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer9"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="HSplitContainer10" type="HSplitContainer" parent="Panel/ScrollContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-dragger_visibility = 2
-
-[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer10"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-text = "Export's Y Bleed Padding:"
-horizontal_alignment = 1
-
-[node name="SpinBox" type="SpinBox" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer10"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="HSplitContainer11" type="HSplitContainer" parent="Panel/ScrollContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-dragger_visibility = 1
-
-[node name="QS_0EB_Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer11"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Quick Set: (No Export Bleed)"
-
-[node name="QS_1EB_Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/HSplitContainer11"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Quick Set: (1px Export Bleed)"
-
-[node name="HSC2" type="HSplitContainer" parent="Panel/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-dragger_visibility = 2
-
-[node name="ExportNameLineEdit" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer/HSC2"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Example Normal.png"
-alignment = 1
-editable = false
-
-[node name="ChangeButton2" type="Button" parent="Panel/ScrollContainer/VBoxContainer/HSC2"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-text = "Change"
 
 [node name="GenerateButton" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -398,56 +270,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Continue"
 
-[node name="ErrorScreen2" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.741176)
-
-[node name="Label" type="Label" parent="ErrorScreen2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Please Choose Image Filepath First."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Continue2Button" type="Button" parent="ErrorScreen2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.495
-anchor_top = 0.679
-anchor_right = 0.495
-anchor_bottom = 0.679
-offset_left = -98.0
-offset_top = -28.4
-offset_right = 98.0
-offset_bottom = 28.6
-grow_horizontal = 2
-grow_vertical = 2
-text = "Continue"
-
-[connection signal="confirmed" from="ExportNameDialog" to="." method="_on_export_name_dialog_confirmed"]
 [connection signal="file_selected" from="FilepathDialog" to="." method="_on_filepath_dialog_file_selected"]
-[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/HSC/ChangeButton" to="." method="_on_change_button_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/FilepathButton" to="." method="_on_filepath_button_pressed"]
 [connection signal="toggled" from="Panel/ScrollContainer/VBoxContainer/TilesheetCheckBox" to="." method="_on_tilesheet_check_box_toggled"]
-[connection signal="toggled" from="Panel/ScrollContainer/VBoxContainer/TilesheetCheckBox2" to="." method="_on_tilesheet_check_box_2_toggled"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/HSplitContainer5/QS_16_and_0B_Button" to="." method="_on_qs_16_and_0b_button_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/HSplitContainer5/QS_16_and_1B_Button" to="." method="_on_qs_16_and_1b_button_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/HSplitContainer6/QS_32_and_0B_Button" to="." method="_on_qs_32_and_0b_button_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/HSplitContainer6/QS_32_and_1B_Button" to="." method="_on_qs_32_and_1b_button_pressed"]
-[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/HSplitContainer11/QS_0EB_Button" to="." method="_on_qs_0eb_button_pressed"]
-[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/HSplitContainer11/QS_1EB_Button" to="." method="_on_qs_1eb_button_pressed"]
-[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/HSC2/ChangeButton2" to="." method="_on_change_button_2_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/GenerateButton" to="." method="_on_generate_button_pressed"]
 [connection signal="pressed" from="SavedScreen/OKButton" to="." method="_on_ok_button_pressed"]
 [connection signal="pressed" from="ErrorScreen/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="ErrorScreen2/Continue2Button" to="." method="_on_continue_2_button_pressed"]
