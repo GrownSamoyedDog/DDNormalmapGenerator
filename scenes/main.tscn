@@ -1,3 +1,176 @@
-[gd_scene format=3 uid="uid://d3h0dgrmjj3on"]
+[gd_scene load_steps=4 format=3 uid="uid://d3h0dgrmjj3on"]
 
-[node name="main" type="Node2D"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_8ars8"]
+[ext_resource type="Texture2D" uid="uid://bii2gls21ryga" path="res://assets/example.png" id="2_yk147"]
+[ext_resource type="Texture2D" uid="uid://csp354ms7ygla" path="res://assets/example Normal.png" id="3_otp8a"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ars8")
+
+[node name="FilepathDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(600, 450)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+clip_contents = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FilepathLineEdit" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "C:/example.png"
+alignment = 1
+editable = false
+
+[node name="FilepathButton" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Choose Image Filepath"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("2_yk147")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GenerateButton" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Generate Normalmap"
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("3_otp8a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Saved Screen" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.741176)
+
+[node name="Label" type="Label" parent="Saved Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Done!
+
+(Check the folder where you got the file from.)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OKButton" type="Button" parent="Saved Screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.65
+anchor_right = 0.5
+anchor_bottom = 0.65
+offset_left = -86.0
+offset_top = -29.0
+offset_right = 86.0
+offset_bottom = 29.0
+text = "OK"
+
+[node name="PerformingScreen" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.247059, 0.741176)
+
+[node name="Label" type="Label" parent="PerformingScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Performing Operation..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ErrorScreen" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.741176)
+
+[node name="Label" type="Label" parent="ErrorScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Error: Image did not load!
+
+Are you sure this is an image?
+Is it a file format Godot supports?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="ErrorScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.495
+anchor_top = 0.679
+anchor_right = 0.495
+anchor_bottom = 0.679
+offset_left = -98.0
+offset_top = -28.4
+offset_right = 98.0
+offset_bottom = 28.6
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+
+[connection signal="file_selected" from="FilepathDialog" to="." method="_on_filepath_dialog_file_selected"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/FilepathButton" to="." method="_on_filepath_button_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/GenerateButton" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="Saved Screen/OKButton" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="ErrorScreen/ContinueButton" to="." method="_on_continue_button_pressed"]
